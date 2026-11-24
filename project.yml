@@ -1,0 +1,50 @@
+name: Hush
+options:
+  bundleIdPrefix: com.pats
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+packages:
+  NoiseKit:
+    path: NoiseKit
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 0.1.0
+    DEVELOPMENT_TEAM: JQZJW7A337
+targets:
+  Hush:
+    type: application
+    platform: iOS
+    sources:
+      - Hush
+    dependencies:
+      - package: NoiseKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.pats.hush
+        PRODUCT_NAME: Hush
+        CODE_SIGN_STYLE: Automatic
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO
+    info:
+      path: Support/Info.plist
+      properties:
+        CFBundleDisplayName: Hush
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.healthcare-fitness
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ITSAppUsesNonExemptEncryption: false
+        UIUserInterfaceStyle: Dark
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        # Keeps the noise playing with the screen locked.
+        UIBackgroundModes:
+          - audio
+        NSMicrophoneUsageDescription: Hush listens to the room for a few seconds to shape a noise that covers it. The sound is measured on the phone and never saved or sent anywhere.
